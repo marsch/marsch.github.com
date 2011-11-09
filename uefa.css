@@ -1,0 +1,31 @@
+#stage {
+  background-image: url('images/bg.png');
+  width: 946px;
+  height: 532px;
+}
+
+#wrapper {
+}
+
+#circle {
+  width: 500;
+  height: 500px;
+  display: block;
+  border-radius: 250px;
+  -moz-border-radius: 250px;
+  -webkit-border-radius: 250px;
+  -khtml-border-radius: 250px;
+  overflow:hidden;
+}
+
+li {
+  display: block;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #FF000;
+  background-color: #CCC;
+}
+
+li:hover {
+  background-color: #FFF;
+}
