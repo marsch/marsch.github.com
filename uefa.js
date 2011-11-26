@@ -51,33 +51,129 @@ function Stadion (domID, data, width, height) {
     self.drawBottom();
   };
 
+
+  self.onClickTeamsLabel = function () { 
+    $('#details').empty();
+    var img = new Image();
+    $(img).load(function () {
+            $(this).hide(); 
+            $('#details').append(this); 
+            $(this).attr('z-index', -1);
+            $(this).fadeIn();
+          })
+          .attr('src', 'images/teams_detail.jpg');
+  };
+  self.onClickLocationsLabel = function () {
+    $('#details').empty();
+    var img = new Image();
+    $(img).load(function () {
+            $(this).hide(); 
+            $('#details').append(this); 
+            $(this).attr('z-index', -1);
+            $(this).fadeIn();
+          })
+          .attr('src', 'images/locations_detail.jpg');
+
+  };
+  self.onClickDatesLabel = function () {
+    $('#details').empty();
+    var img = new Image();
+    $(img).load(function () {
+            $(this).hide(); 
+            $('#details').append(this); 
+            $(this).attr('z-index', -1);
+            $(this).fadeIn();
+          })
+          .attr('src', 'images/dates_detail.jpg');
+  };
+  self.onClickRoundsLabel = function () {
+    $('#details').empty();
+    var img = new Image();
+    $(img).load(function () {
+            $(this).hide(); 
+            $('#details').append(this); 
+            $(this).attr('z-index', -1);
+            $(this).fadeIn();
+          })
+          .attr('src', 'images/rounds_detail.jpg');
+  };
+
+  self.onClickLocation = function () {
+    $('#details').empty();
+    var img = new Image();
+    $(img).load(function () {
+            $(this).hide(); 
+            $('#details').append(this); 
+            $(this).attr('z-index', -1);
+            $(this).fadeIn();
+          })
+          .attr('src', 'images/4_games_detail.jpg');
+  };
+  self.onClickTeam = function () {
+    $('#details').empty();
+    var img = new Image();
+    $(img).load(function () {
+            $(this).hide(); 
+            $('#details').append(this); 
+            $(this).attr('z-index', -1);
+            $(this).fadeIn();
+          })
+          .attr('src', 'images/4_games_detail.jpg');
+
+  };
+  self.onClickDate = function () {
+    $('#details').empty();
+    var img = new Image();
+    $(img).load(function () {
+            $(this).hide(); 
+            $('#details').append(this); 
+            $(this).attr('z-index', -1);
+            $(this).fadeIn();
+          })
+          .attr('src', 'images/6_games_detail.jpg');
+
+  };
+  self.onClickRound = function () {
+    $('#details').empty();
+    var img = new Image();
+    $(img).load(function () {
+            $(this).hide(); 
+            $('#details').append(this); 
+            $(this).attr('z-index', -1);
+            $(this).fadeIn();
+          })
+          .attr('src', 'images/4_games_detail.jpg');
+
+  };
+
+
   self.drawBottom = function () {
     var segment;
     segment = self.paper.path(bottom_path);
     segment.attr(self.itemSegmentAttr);
   };
   self.drawTeams = function (teamData) {
-    self.drawItemAndLabel(teams_paths[0], "TEILNEHMER", self.labelItemSegmentAttr, self.labelItemLabelAttr, function () {});
+    self.drawItemAndLabel(teams_paths[0], "TEILNEHMER", self.labelItemSegmentAttr, self.labelItemLabelAttr, self.onClickTeamsLabel);
     $(teamData).each(function (i, item) {
-      self.drawItemAndLabel(teams_paths[i + 1], item.name, self.itemSegmentAttr, self.itemLabelAttr, function (){ alert('clicked me'); });
+      self.drawItemAndLabel(teams_paths[i + 1], item.name, self.itemSegmentAttr, self.itemLabelAttr, self.onClickTeam);
     });
   };
   self.drawRounds = function (roundData) {
-    self.drawItemAndLabel(rounds_paths[0], "RUNDEN", self.labelItemSegmentAttr, self.labelItemLabelAttr, function () {});
+    self.drawItemAndLabel(rounds_paths[0], "RUNDEN", self.labelItemSegmentAttr, self.labelItemLabelAttr, self.onClickRoundsLabel);
     $(roundData).each(function (i, item) {
-      self.drawItemAndLabel(rounds_paths[i + 1], item.name, self.itemSegmentAttr, self.itemLabelAttr, function () {});
+      self.drawItemAndLabel(rounds_paths[i + 1], item.name, self.itemSegmentAttr, self.itemLabelAttr, self.onClickRound);
     });
   };
   self.drawDates = function (datesData) {
-    self.drawItemAndLabel(matches_paths[0], "TERMINE", self.labelItemSegmentAttr, self.labelItemLabelAttr, function () {});
+    self.drawItemAndLabel(matches_paths[0], "TERMINE", self.labelItemSegmentAttr, self.labelItemLabelAttr, self.onClickDatesLabel);
     $(datesData).each(function (i, item) {
-      self.drawItemAndLabel(matches_paths[i + 1], item.name, self.itemSegmentAttr, self.itemLabelAttr, function () {});
+      self.drawItemAndLabel(matches_paths[i + 1], item.name, self.itemSegmentAttr, self.itemLabelAttr, self.onClickDate);
     });
   };
   self.drawLocations = function (locationData) {
-    self.drawItemAndLabel(locations_paths[0], "SPIELORTE", self.labelItemSegmentAttr, self.labelItemLabelAttr, function () {});
+    self.drawItemAndLabel(locations_paths[0], "SPIELORTE", self.labelItemSegmentAttr, self.labelItemLabelAttr, self.onClickLocationsLabel);
     $(locationData).each(function (i, item) {
-      self.drawLocationItemAndLabel(locations_paths[i + 1], item, self.itemSegmentAttr, self.itemLabelAttr, function () {});
+      self.drawLocationItemAndLabel(locations_paths[i + 1], item, self.itemSegmentAttr, self.itemLabelAttr, self.onClickLocation);
     });
   };
 
@@ -114,6 +210,10 @@ function Stadion (domID, data, width, height) {
 
       $(segment.node).hover(hoverFunc, hideFunc);
       $(label.node).hover(hoverFunc, hideFunc);
+
+      //assign clickhandler
+      $(segment.node).click(_.bind(onclick, self));
+      $(label.node).click(_.bind(onclick, self));
   };
   self.drawItemAndLabel = function (segmentItem, labelText, segmentFormat, labelFormat, onclick) {
     var segment, label, lx, ly;
@@ -136,6 +236,9 @@ function Stadion (domID, data, width, height) {
       $(segment.node).hover(hoverFunc, hideFunc);
       $(label.node).hover(hoverFunc, hideFunc);
 
+      //assign clickhandler
+      $(segment.node).click(_.bind(onclick, self));
+      $(label.node).click(_.bind(onclick, self));
   };
   self.getRounds = function () {
     var rounds = self.data.groups;

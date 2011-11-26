@@ -11,11 +11,18 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1000;
+
 }
 #social {
   position: absolute;
   left: 16px;
-  top: 480px;
+  top: 480px;}
+#details {
+  position: absolute;
+  left: 280px;
+  top: 100px;
+  z-index: 1;
 }
 #abspann {
   position: absolute;
