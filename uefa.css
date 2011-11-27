@@ -20,7 +20,7 @@
   top: 480px;}
 #details {
   position: absolute;
-  left: 280px;
+  left: 284px;
   top: 100px;
   z-index: 1;
 }
@@ -37,6 +37,105 @@
 }
 #abspann a:hover {
   text-decoration: underline;
+}
+.games_3 {
+  background-image: url('images/3_games_detail.jpg');
+  background-repeat: no-repeat;
+  height: 284px;
+  width: 468px;
+  padding-top: 95px;
+  padding-left: 50px;
+}
+
+.listitem {
+  display: block;
+  width: 418px;
+  padding-bottom: 10px;
+}
+.list {
+  display: inline-block;
+  vertical-align: top;
+}
+.list.icon {
+  width: 21px;
+  height: 21px;
+  background-repeat: no-repeat;
+}
+
+.list.icon.ESP {
+  background-image: url('images/icons/spanien.png');
+}
+.list.icon.GER {
+  background-image: url('images/icons/germany.png');
+}
+.list.icon.DEN {
+  background-image: url('images/icons/denmark.png');
+}
+.list.icon.ENG {
+  background-image: url('images/icons/england.png');
+}
+.list.icon.FRA {
+  background-image: url('images/icons/frankreich.png');
+}
+.list.icon.GRE {
+  background-image: url('images/icons/griechenland.png');
+}
+.list.icon.IRL {
+  background-image: url('images/icons/irland.png');
+}
+.list.icon.ITA {
+  background-image: url('images/icons/italien.png');
+}
+.list.icon.CRO {
+  background-image: url('images/icons/kroatien.png');
+}
+.list.icon.NED {
+  background-image: url('images/icons/niederlande.png');
+}
+.list.icon.POL {
+  background-image: url('images/icons/polen.png');
+}
+.list.icon.POR {
+  background-image: url('images/icons/portugal.png');
+}
+.list.icon.RUS {
+  background-image: url('images/icons/russland.png');
+}
+.list.icon.SWE {
+  background-image: url('images/icons/schweden.png');
+}
+.list.icon.CZE {
+  background-image: url('images/icons/tschechische_republik.png');
+}
+.list.icon.UKR {
+  background-image: url('images/icons/ukraine.png');
+}
+
+.list.teamname {
+  width: 40px;
+  padding-top: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.list.extrainfo {
+  font-size: 10px;
+  color: #333333;
+  width: 90px;
+}
+.list.team1 {
+}
+.list.result {
+  padding-top: 4px;
+  padding-right: 4px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.list.team2 {
+}
+.list.links {
+  font-size: 11px;
+  padding-top: 2px;
+  text-decoration: none;
 }
 #wrapper {
 }
