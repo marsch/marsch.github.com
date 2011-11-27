@@ -101,25 +101,53 @@ function RoundsView (domID) {
   self.init();
 }
 
-function LocationView (domID) {
+/*function AbstractListView (domId, data, matches) {
+  var self = this;
+  self.iit(domId, data, matches);
+};
+AbstractListView.prototype.init = function (domId, data, matches) {
+  var self = this;
+  self.domId = domId;
+  self.data = data;
+  self.matches = matches;
+};
+
+AbstractListView.prototype.draw = function () {
+  var self = this, 
+    container, wrapper, content;
+
+  container = $('#' + self.domID);
+  container.empty();
+  container.hide();
+  
+  wrapper = $('<div></div>').appendTo('#' + self.domID);
+  wrapper.addClass('games_' + _.size(self.matches));
+  content = $('#match_listitem').tmpl(self.matches);
+  wrapper.append(content);
+  
+  container.fadeIn();
+};*/
+function LocationView (domID, location, matches) {
   if(! (this instanceof arguments.callee)) {
     return new arguments.callee(arguments);
   }
   var self = this;
   self.init = function () {
     self.domID = domID;
+    self.location = location;
+    self.matches = matches;
   };
 
   self.draw = function () {
-    $('#' + self.domID).empty();
-    var img = new Image();
-    $(img).load(function () {
-            $(this).hide(); 
-            $('#' + self.domID).append(this); 
-            $(this).attr('z-index', -1);
-            $(this).fadeIn();
-          })
-          .attr('src', 'images/4_games_detail.jpg');
+    var container = $('#' + self.domID);
+    container.empty();
+    container.hide();
+    var wrapper = $('<div></div>').appendTo('#' + self.domID);
+    wrapper.addClass('games_' + _.size(self.matches));
+    var content = $('#match_listitem').tmpl(self.matches);
+    wrapper.append(content);
+
+    container.fadeIn();
   };
 
   self.init();
@@ -142,35 +170,63 @@ function TeamView (domID, team, matches) {
     container.empty();
     container.hide();
     var wrapper = $('<div></div>').appendTo('#' + self.domID);
-    wrapper.addClass('games_' + _.size(matches));
+    wrapper.addClass('games_' + _.size(self.matches));
     var content = $('#match_listitem').tmpl(self.matches);
     wrapper.append(content);
 
     container.fadeIn();
-
-    /*var img = new Image();
-    $(img).load(function () {
-            $(this).hide(); 
-            $('#' + self.domID).append(this); 
-            $(this).attr('z-index', -1);
-            $(this).fadeIn();
-          })
-          .attr('src', 'images/' + _.size(matches) + '_games_detail.jpg');*/
   };
-
   self.init();
 };
 
-function DateView (domID) {
+function DateView (domID, matches) {
   if (! (this instanceof arguments.callee)) {
     return new arguments.callee(arguments);
   }
   var self = this;
   self.init = function () {
     self.domID = domID;
+    self.matches = matches;
+    console.log(self);
   };
 
   self.draw = function () {
+    var container = $('#' + self.domID);
+    container.empty();
+    container.hide();
+
+    var wrapper = $('<div></div>').appendTo('#' + self.domID);
+    wrapper.addClass('games_' + _.size(self.matches));
+    var content = $('#match_listitem').tmpl(self.matches);
+    wrapper.append(content);
+
+    container.fadeIn();
+  };
+  self.init();
+};
+
+function RoundView (domID, round, matches) {
+  if (! (this instanceof arguments.callee)) {
+    return new arguments.callee(arguments);
+  }
+  var self = this;
+  self.init = function () {
+    self.domID = domID;
+    self.round = round;
+    self.matches = matches;
+  };
+  self.draw = function () {
+    var container = $('#' + self.domID);
+    container.empty();
+    container.hide();
+
+    var wrapper = $('<div></div>').appendTo('#' + self.domID);
+    wrapper.addClass('games_' + _.size(self.matches));
+    var content = $('#match_listitem').tmpl(self.matches);
+    wrapper.append(content);
+    container.fadeIn();
+
+/*
     $('#' + self.domID).empty();
     var img = new Image();
     $(img).load(function () {
@@ -179,31 +235,7 @@ function DateView (domID) {
             $(this).attr('z-index', -1);
             $(this).fadeIn();
           })
-          .attr('src', 'images/6_games_detail.jpg');
-
-  };
-
-  self.init();
-};
-
-function RoundView (domID) {
-  if (! (this instanceof arguments.callee)) {
-    return new arguments.callee(arguments);
-  }
-  var self = this;
-  self.init = function () {
-    self.domID = domID;
-  };
-  self.draw = function () {
-    $('#' + self.domID).empty();
-    var img = new Image();
-    $(img).load(function () {
-            $(this).hide(); 
-            $('#' + self.domID).append(this); 
-            $(this).attr('z-index', -1);
-            $(this).fadeIn();
-          })
-          .attr('src', 'images/4_games_detail.jpg');
+          .attr('src', 'images/4_games_detail.jpg');*/
   };
   self.init();
 }
@@ -241,7 +273,80 @@ function MatchesModel (data) {
   self.getLocations = function () {
     return self.data.locations;
   };
-
+  self.getMatchesByRound = function (roundID) {
+    var matches = [], groupIdentifier;  
+    // viertelfinale 25-28
+    if (roundID === "vf") {
+      matches.push(self.getMatchByID(25));
+      matches.push(self.getMatchByID(26));
+      matches.push(self.getMatchByID(27));
+      matches.push(self.getMatchByID(28));
+    } else if (roundID === "hf") {
+      // halbfinale 29-30
+      matches.push(self.getMatchByID(29));
+      matches.push(self.getMatchByID(30));
+    } else if (roundID === "f") {
+      // finale 31
+      matches.push(self.getMatchByID(31));
+    } else {
+      //group phase
+      groupIdentifier = roundID.substring(1);
+      _.each(self.data.matches, function (matchday, date) {
+        _.each(matchday, function (match) {
+          if(match.team_1.substring(0,1) === groupIdentifier) {
+            matches.push(match);
+          }
+        });
+      });
+    }
+    console.log(matches);
+    _.each(matches, function (match) {
+      match.team_1_data = self.getTeamByGroupIdentifier(match.team_1);
+      match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
+      match.location_data = self.getLocationByID(match.location);
+    });
+    return matches;
+  };
+  self.getMatchByID = function (matchID) {
+    for (var i in self.data.matches) {
+      var matchday = self.data.matches[i];
+      for (var j in matchday) {
+        var match = matchday[j];
+        if (match.id === matchID) {
+          console.log(match);
+          return match;
+        }
+      }
+    }
+    return false;
+  };
+  self.getMatchesByDate = function (date) {
+    if (!self.data.matches.hasOwnProperty(date)) {
+      return false;
+    }
+    var matches = self.data.matches[date];
+    _.each(matches, function (match) {
+      match.team_1_data = self.getTeamByGroupIdentifier(match.team_1);
+      match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
+      match.location_data = self.getLocationByID(match.location);
+    });
+    console.log(matches);
+    return matches;
+  };
+  self.getMatchesByLocation = function (locationID) {
+    var matches = [];
+    _.each(self.data.matches, function (matchday, date) {
+      _.each(matchday, function (match) {
+        if (match.location === locationID) {
+          match.team_1_data = self.getTeamByGroupIdentifier(match.team_1);
+          match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
+          match.location_data = self.getLocationByID(match.location);
+          matches.push(match);
+        }
+      });
+    });
+    return matches;
+  };
   self.getMatchesByTeam = function (teamID) {
     var group = self.getGroupByTeam(teamID);
     var groupIdentifier = group.id.substring(1) + (_.indexOf(group.members, teamID) + 1);
@@ -372,8 +477,10 @@ function Stadion (domID, data, width, height) {
   };
 
   self.onClickLocation = function () {
-    console.log(this.data("item"));
-    var view = new LocationView('details');
+    var location, matches, view;
+    location = this.data('item');
+    matches = self.model.getMatchesByLocation(location.id);
+    view = new LocationView('details', location, matches);
     view.draw();
   };
   self.onClickTeam = function () {
@@ -384,13 +491,19 @@ function Stadion (domID, data, width, height) {
     view.draw();
   };
   self.onClickDate = function () {
-    console.log(this.data("item"));
-    var view = new DateView('details');
+    var view, matches, date;
+    date = this.data('item');
+    matches = self.model.getMatchesByDate(date.id);
+    
+    var view = new DateView('details', matches);
     view.draw();
   };
   self.onClickRound = function () {
     console.log(this.data("item"));
-    var view = new RoundView('details');
+    var view, round, location;
+    round = this.data('item');
+    matches = self.model.getMatchesByRound(round.id);
+    view = new RoundView('details', round, matches);
     view.draw();
   };
 

@@ -38,12 +38,52 @@
 #abspann a:hover {
   text-decoration: underline;
 }
+.games_6 {
+  background-image: url('images/6_games_detail.jpg');
+  background-repeat: no-repeat;
+  height: 284px;
+  width: 468px;
+  padding-top: 45px;
+  padding-left: 50px;
+}
+.games_5 {
+  background-image: url('images/5_games_detail.jpg');
+  background-repeat: no-repeat;
+  height: 284px;
+  width: 468px;
+  padding-top: 58px;
+  padding-left: 50px;
+}
+.games_4 {
+  background-image: url('images/4_games_detail.jpg');
+  background-repeat: no-repeat;
+  height: 284px;
+  width: 468px;
+  padding-top: 78px;
+  padding-left: 50px;
+}
 .games_3 {
   background-image: url('images/3_games_detail.jpg');
   background-repeat: no-repeat;
   height: 284px;
   width: 468px;
   padding-top: 95px;
+  padding-left: 50px;
+}
+.games_2 {
+  background-image: url('images/2_games_detail.jpg');
+  background-repeat: no-repeat;
+  height: 284px;
+  width: 468px;
+  padding-top: 115px;
+  padding-left:  50px;
+}
+.games_1 {
+  background-image: url('images/1_games_detail.jpg');
+  background-repeat: no-repeat;
+  height: 284px;
+  width: 468px;
+  padding-top: 130px;
   padding-left: 50px;
 }
 
