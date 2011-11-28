@@ -95,7 +95,7 @@ function RoundsView (domID) {
             $(this).attr('z-index', -1);
             $(this).fadeIn();
           })
-          .attr('src', 'images/rounds_detail.jpg');
+          .attr('src', 'images/rounds_detail-dirty.jpg');
   };
 
   self.init();
