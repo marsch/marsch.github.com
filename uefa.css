@@ -40,7 +40,9 @@
 #social {
   position: absolute;
   left: 16px;
-  top: 480px;}
+  top: 480px;
+  z-index:1100;
+}
 #details {
   position: absolute;
   left: 284px;
