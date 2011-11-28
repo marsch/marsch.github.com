@@ -142,6 +142,8 @@ function LocationView (domID, location, matches) {
     var container = $('#' + self.domID);
     container.empty();
     container.hide();
+    var title = $('<div>' + self.location.name + '</div>').appendTo('#' + self.domID);
+    title.addClass('games_title');
     var wrapper = $('<div></div>').appendTo('#' + self.domID);
     wrapper.addClass('games_' + _.size(self.matches));
     var content = $('#match_listitem').tmpl(self.matches);
@@ -169,6 +171,8 @@ function TeamView (domID, team, matches) {
     var container = $('#' + self.domID);
     container.empty();
     container.hide();
+    var title = $('<div>' + self.team.name + '</div>').appendTo('#' + self.domID);
+    title.addClass('games_title');
     var wrapper = $('<div></div>').appendTo('#' + self.domID);
     wrapper.addClass('games_' + _.size(self.matches));
     var content = $('#match_listitem').tmpl(self.matches);
@@ -179,13 +183,14 @@ function TeamView (domID, team, matches) {
   self.init();
 };
 
-function DateView (domID, matches) {
+function DateView (domID, date, matches) {
   if (! (this instanceof arguments.callee)) {
     return new arguments.callee(arguments);
   }
   var self = this;
   self.init = function () {
     self.domID = domID;
+    self.date = date;
     self.matches = matches;
     console.log(self);
   };
@@ -194,7 +199,8 @@ function DateView (domID, matches) {
     var container = $('#' + self.domID);
     container.empty();
     container.hide();
-
+    var title = $('<div>' + self.date.id + '</div>').appendTo('#' + self.domID);
+    title.addClass('games_title');
     var wrapper = $('<div></div>').appendTo('#' + self.domID);
     wrapper.addClass('games_' + _.size(self.matches));
     var content = $('#match_listitem').tmpl(self.matches);
@@ -219,6 +225,9 @@ function RoundView (domID, round, matches) {
     var container = $('#' + self.domID);
     container.empty();
     container.hide();
+
+    var title = $('<div>' + self.round.name + '</div>').appendTo('#' + self.domID);
+    title.addClass('games_title');
 
     var wrapper = $('<div></div>').appendTo('#' + self.domID);
     wrapper.addClass('games_' + _.size(self.matches));
@@ -495,7 +504,7 @@ function Stadion (domID, data, width, height) {
     date = this.data('item');
     matches = self.model.getMatchesByDate(date.id);
     
-    var view = new DateView('details', matches);
+    var view = new DateView('details', date, matches);
     view.draw();
   };
   self.onClickRound = function () {

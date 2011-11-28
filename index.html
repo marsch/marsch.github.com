@@ -24,14 +24,18 @@
           <div class='list icon ${team_1_data.short_name}' />
           <div class='list teamname'>${team_1_data.short_name}</div>
         </div>
-        <div class='list result'>${score.team_1}:${score.team_2}</div>
+        <div class='list result'>
+          ${score.team_1}:${score.team_2}
+          <br/>
+          <span class='list subresult'>(3:3 nV)</span>
+        </div>
         <div class='list team2'>
           <div class='list teamname'>${team_2_data.short_name}</div>
           <div class='list icon ${team_2_data.short_name}' />
         </div>
         <div class='list links'>
-          {{if link_1}}<a href="${link_1.url}">${link_1.label}</a><br/>{{/if}}
-          {{if link_2}}<a href="${link_2.url}">${link_2.label}</a>{{/if}}
+          {{if link_1}}<a class='list link' href="${link_1.url}">${link_1.label}</a><br/>{{/if}}
+          {{if link_2}}<a class='list link' href="${link_2.url}">${link_2.label}</a>{{/if}}
         </div>
       </div>
   </script>

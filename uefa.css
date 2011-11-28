@@ -1,3 +1,26 @@
+@font-face {
+    font-family: 'Swiss721Regular';
+    src: url('webfonts/swissbtbla-webfont.eot');
+    src: url('webfonts/swissbtbla-webfont.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/swissbtbla-webfont.woff') format('woff'),
+         url('webfonts/swissbtbla-webfont.ttf') format('truetype'),
+         url('webfonts/swissbtbla-webfont.svg#Swiss721Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Swiss721Black';
+    src: url('webfonts/swiss721bt-black-webfont.eot');
+    src: url('webfonts/swiss721bt-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/swiss721bt-black-webfont.woff') format('woff'),
+         url('webfonts/swiss721bt-black-webfont.ttf') format('truetype'),
+         url('webfonts/swiss721bt-black-webfont.svg#Swiss721Black') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 #container {
   background-image: url('images/bg.png');
   width: 946px;
@@ -43,7 +66,7 @@
   background-repeat: no-repeat;
   height: 284px;
   width: 468px;
-  padding-top: 45px;
+  padding-top: 38px;
   padding-left: 50px;
 }
 .games_5 {
@@ -51,7 +74,7 @@
   background-repeat: no-repeat;
   height: 284px;
   width: 468px;
-  padding-top: 58px;
+  padding-top: 54px;
   padding-left: 50px;
 }
 .games_4 {
@@ -59,7 +82,7 @@
   background-repeat: no-repeat;
   height: 284px;
   width: 468px;
-  padding-top: 78px;
+  padding-top: 73px;
   padding-left: 50px;
 }
 .games_3 {
@@ -67,15 +90,25 @@
   background-repeat: no-repeat;
   height: 284px;
   width: 468px;
-  padding-top: 95px;
+  padding-top: 90px;
   padding-left: 50px;
+}
+.games_title {
+  font-size: 18px;
+  font-family: 'Swiss721Black', Arial, Helvetica;
+  color: #333333;
+  position: absolute;
+  width: 468px;
+  text-align: center;
+  left: 0px;
+  top: 10px;
 }
 .games_2 {
   background-image: url('images/2_games_detail.jpg');
   background-repeat: no-repeat;
   height: 284px;
   width: 468px;
-  padding-top: 115px;
+  padding-top: 109px;
   padding-left:  50px;
 }
 .games_1 {
@@ -83,20 +116,23 @@
   background-repeat: no-repeat;
   height: 284px;
   width: 468px;
-  padding-top: 130px;
+  padding-top: 125px;
   padding-left: 50px;
 }
 
 .listitem {
   display: block;
   width: 418px;
-  padding-bottom: 10px;
+  height: 34px;
+  padding-bottom: 2px;
 }
 .list {
   display: inline-block;
   vertical-align: top;
+  font-family: Arial, Helvetica;
 }
 .list.icon {
+  margin-top: 6px;
   width: 21px;
   height: 21px;
   background-repeat: no-repeat;
@@ -152,30 +188,47 @@
 }
 
 .list.teamname {
-  width: 40px;
-  padding-top: 4px;
-  font-size: 12px;
+  width: 30px;
+  font-size: 13px;
   font-weight: bold;
+  padding-top: 10px;
 }
 .list.extrainfo {
-  font-size: 10px;
+  padding-top: 2px;
+  font-size: 9px;
   color: #333333;
-  width: 90px;
+  width: 80px;
+  padding-left: 24px;
 }
 .list.team1 {
 }
 .list.result {
-  padding-top: 4px;
-  padding-right: 4px;
-  font-size: 18px;
+  margin-top: 5px;
+  padding-right: 2px;
+  padding-left: 2px;
+  font-size: 22px;
+  line-height: 15px;
   font-weight: bold;
+}
+.list.subresult {
+  font-size: 9px;
 }
 .list.team2 {
 }
 .list.links {
-  font-size: 11px;
-  padding-top: 2px;
+  padding-left: 10px;
+  padding-top: 3px;
+  font-size: 12px;
+  line-height: 15px;
+}
+a.list.link {
+  font-family: Arial, Helvetica;
+  color: #666666;
+  font-weight: bold;
   text-decoration: none;
+}
+a.list.link:hover {
+  text-decoration: underline;
 }
 #wrapper {
 }
