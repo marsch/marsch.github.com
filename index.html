@@ -27,7 +27,8 @@
         <div class='list result'>
           ${score.team_1}:${score.team_2}
           <br/>
-          <span class='list subresult'>(4:3 nV)</span>
+          {{if isNV}}<span class='list subresult'>(${subscore.team_1}:${subscore.team_2} nV)</span>{{/if}}
+          {{if isNE}}<span class='list subresult'>(${subscore.team_1}:${subscore.team_2} nE)</span>{{/if}}
         </div>
         <div class='list team2'>
           <div class='list teamname'>${team_2_data.short_name}</div>

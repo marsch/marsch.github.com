@@ -19,7 +19,7 @@ function TeamsMapView (domID) {
             $(this).attr('z-index', -1);
             $(this).fadeIn();
           })
-          .attr('src', 'images/teams_detail.jpg');
+          .attr('src', 'images/teams_detail.png');
   };
 
   self.init();
@@ -44,7 +44,7 @@ function DatesView (domID) {
             $(this).attr('z-index', -1);
             $(this).fadeIn();
           })
-          .attr('src', 'images/dates_detail.jpg');
+          .attr('src', 'images/dates_detail.png');
   };
 
   self.init();
@@ -70,7 +70,7 @@ function LocationsView (domID) {
             $(this).attr('z-index', -1);
             $(this).fadeIn();
           })
-          .attr('src', 'images/locations_detail.jpg');
+          .attr('src', 'images/locations_detail.png');
   };
   self.init();
 }
@@ -95,38 +95,12 @@ function RoundsView (domID) {
             $(this).attr('z-index', -1);
             $(this).fadeIn();
           })
-          .attr('src', 'images/rounds_detail-dirty.jpg');
+          .attr('src', 'images/rounds_detail-dirty.png');
   };
 
   self.init();
 }
 
-/*function AbstractListView (domId, data, matches) {
-  var self = this;
-  self.iit(domId, data, matches);
-};
-AbstractListView.prototype.init = function (domId, data, matches) {
-  var self = this;
-  self.domId = domId;
-  self.data = data;
-  self.matches = matches;
-};
-
-AbstractListView.prototype.draw = function () {
-  var self = this, 
-    container, wrapper, content;
-
-  container = $('#' + self.domID);
-  container.empty();
-  container.hide();
-  
-  wrapper = $('<div></div>').appendTo('#' + self.domID);
-  wrapper.addClass('games_' + _.size(self.matches));
-  content = $('#match_listitem').tmpl(self.matches);
-  wrapper.append(content);
-  
-  container.fadeIn();
-};*/
 function LocationView (domID, location, matches) {
   if(! (this instanceof arguments.callee)) {
     return new arguments.callee(arguments);
@@ -373,16 +347,52 @@ function MatchesModel (data) {
     return matches;
   };
   self.getTeamByGroupIdentifier = function (identifier) {
-    var groupID = 'g' + identifier.substring(0,1);
-    var teamIndex = identifier.substring(1);
-    for (var i in self.data.groups) {
-      var group = self.data.groups[i];
-      if(group.id === groupID) {
-        return self.getTeamByID(group.members[teamIndex - 1]);
-      }
-    };
+    switch (identifier) {
+      //viertelfinale
+      case 'WA':
+      case 'WB':
+      case 'WC':
+      case 'WD':
+        break;
+      case 'RB':
+      case 'RA':
+      case 'RD':
+      case 'RC':
+        break;
+      //halbfinale
+      case 'W25':
+      case 'W27':
+      case 'W26':
+      case 'W28':
+        break;
+      case 'W29':
+      case 'W30':
+        break;
+      default: 
+        var groupID = 'g' + identifier.substring(0,1);
+        var teamIndex = identifier.substring(1);
+        for (var i in self.data.groups) {
+          var group = self.data.groups[i];
+          if(group.id === groupID) {
+            return self.getTeamByID(group.members[teamIndex - 1]);
+          }
+        };
+    }
     return false;
   };
+
+  self.getWinnerTeamByMatchID = function (match_id) {
+  
+  };
+
+  self.getGroupFirstTeam = function (group_id) {
+  
+  };
+  self.getGroupSecondTeam = function (group_id) {
+  
+  };
+
+
   self.getTeamByID = function (id) {
     for (var i in self.data.teams) {
       var team = self.data.teams[i];
@@ -464,6 +474,8 @@ function Stadion (domID, data, width, height) {
     self.drawDates(self.model.getMatchDays());
     self.drawLocations(self.model.getLocations());
     self.drawBottom();
+
+    self.onClickLocationsLabel(); //just the default screen
   };
 
 
