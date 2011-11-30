@@ -36,8 +36,8 @@ data = {
   ],
   matches: {
     '08. Juni': [
-      { id: 1, location: "s1", team_1: "a1", team_2: "a2", date: "08.06.", time: "18:00", score: { team_1: 3, team_2: 3 }, subscore: {team_1: 6, team_2: 8}, isNV: false, isNE: true, status: 'closed', link_2: {label: 'Bericht >', url: 'http://www.yahoo.de'}},
-      { id: 2, location: "s2", team_1: "a3", team_2: "a4", date: "08.06.", time: "20:45", score: { team_1: 1, team_2: 1 },  subscore: {team_1: 1, team_2: 2}, isNV: true, isNE: false, status: 'current', link_1: {label: 'Liveticker >', url: 'http://www.google.de'}}
+      { id: 1, location: "s1", team_1: "a1", team_2: "a2", date: "08.06.", time: "18:00", score: { team_1: 3, team_2: 3 }, subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'closed', link_2: {label: 'Bericht >', url: 'http://www.yahoo.de'}},
+      { id: 2, location: "s2", team_1: "a3", team_2: "a4", date: "08.06.", time: "20:45", score: { team_1: 1, team_2: 1 },  subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'current', link_1: {label: 'Liveticker >', url: 'http://www.google.de'}}
     ],
     '09. Juni': [
       { id: 3, location: "s3", team_1: "b1", team_2: "b2", date: "09.06.", time: "18:00", score: { team_1: 1, team_2: 2 },  subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'closed'},
