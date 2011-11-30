@@ -57,6 +57,7 @@
   left: 284px;
   top: 100px;
   z-index: 3;
+  pointer-events: none;
 }
 #abspann {
   position: absolute;
@@ -97,7 +98,6 @@
   width: 418px;
   padding-top: 73px;
   padding-left: 50px;
-  
 }
 .games_3 {
   background-image: url('images/3_games_detail.png');
@@ -124,7 +124,6 @@
   width: 418px;
   padding-top: 109px;
   padding-left:  50px;
-  
 }
 .games_1 {
   background-image: url('images/1_games_detail.png');
@@ -133,7 +132,6 @@
   width: 418px;
   padding-top: 125px;
   padding-left: 50px;
-  
 }
 
 .listitem {
@@ -141,6 +139,7 @@
   width: 418px;
   height: 34px;
   padding-bottom: 2px;
+  pointer-events: auto !important;
 }
 .list {
   display: inline-block;
