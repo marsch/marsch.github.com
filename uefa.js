@@ -414,14 +414,26 @@ function MatchesModel (data) {
       if (!teams[match.team_2]) {
         teams[match.team_2] = 0;
       }
+      var score = null;
       if (match.isNV || match.isNE) {
-        teams[match.team_1] += match.subscore.team_1;
-        teams[match.team_2] += match.subscore.team_2;
+        score = match.subscore;
       } else {
-        teams[match.team_1] += match.score.team_1;
-        teams[match.team_2] += match.score.team_2;
+        score = match.score;
+      }
+
+      // unentschieden
+      if (score.team_1 === score.team_2) {
+        teams[match.team_1] += 1;
+        teams[match.team_2] += 1;
+      } else if (score.team_1 > score.team_2) {
+        teams[match.team_1] += 3;
+        teams[match.team_2] += 0; // just to make it clear
+      } else {
+        teams[match.team_1] += 0; // more clear :D
+        teams[match.team_2] += 3;
       }
     });
+    
     var sortedTeams = [];
     _.each(teams, function (score, team) {
       var entry = {};
