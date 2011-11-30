@@ -1,4 +1,27 @@
+function AbspannView (domID) {
+  if (! (this instanceof arguments.callee)) {
+    return new arguments.callee(arguments);
+  }
 
+  var self = this;
+  self.init = function () {
+    self.domID = domID;
+  }
+
+  self.draw = function () {
+    $('#' + self.domID).empty();
+    var img = new Image();
+    $(img).load(function () {
+            $(this).hide(); 
+            $('#' + self.domID).append(this); 
+            $(this).attr('z-index', -1);
+            $(this).fadeIn();
+          })
+          .attr('src', 'images/abspann.png');
+  }
+
+  self.init();
+}
 function TeamsMapView (domID) {
   if (! (this instanceof arguments.callee)) {
     return new arguments.callee(arguments);
@@ -622,6 +645,10 @@ function Stadion (domID, data, width, height) {
     view = new RoundView('details', round, matches);
     view.draw();
   };
+  self.onClickAbspann = function () {
+    var view = new AbspannView('details');
+    view.draw();
+  };
 
 
   self.drawBottom = function () {
@@ -730,7 +757,7 @@ function Stadion (domID, data, width, height) {
 };
 
 
-
+var uefastadion;
 $(function () {
-  var r = new Stadion("stage", data, 941, 531);
+  uefastadion = new Stadion("stage", data, 941, 531);
 });
