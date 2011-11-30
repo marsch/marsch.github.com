@@ -19,7 +19,16 @@
     font-style: normal;
 }
 
+#flags {
+  position: absolute;
+  top: 42px;
+  left: 93px;
+  background-image: url('images/stadion_flags.png');
+  background-repeat: no-repeat;
+  width: 946px;
+  height: 532px;
 
+}
 
 #container {
   background-image: url('images/bg.png');

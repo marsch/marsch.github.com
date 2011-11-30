@@ -679,7 +679,7 @@ function Stadion (domID, data, width, height) {
       label.rotate(segmentItem.angle);
 
       hoverFunc = function () {
-        segment.animate({'fill-opacity': 1.0}, 200, 'bounce');
+        segment.animate({'fill-opacity': 0.8}, 200, 'bounce');
       };
       hideFunc = function () {
         segment.animate({'fill-opacity': segmentFormat['fill-opacity']}, 200, 'bounce');
@@ -708,7 +708,7 @@ function Stadion (domID, data, width, height) {
       label.rotate(segmentItem.angle);
 
       hoverFunc = function () {
-        segment.animate({'fill-opacity': 1.0}, 200, 'bounce');
+        segment.animate({'fill-opacity': 0.8}, 200, 'bounce');
       };
       hideFunc = function () {
         segment.animate({'fill-opacity': segmentFormat['fill-opacity']}, 200, 'bounce');
