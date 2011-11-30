@@ -22,16 +22,20 @@
         </div>
         <div class='list team1'>
           <div class='list icon ${team_1_data.short_name}' />
-          <div class='list teamname'>{{if team_1_data}}${team_1_data.short_name}{{else}}--{{/if}}</div>
+          <div class='list teamname'>${team_1_data.short_name}</div>
         </div>
         <div class='list result'>
+          {{if isOpen }}
+          --:--
+          {{else}}
           ${score.team_1}:${score.team_2}
+          {{/if}}
           <br/>
           {{if isNV}}<span class='list subresult'>(${subscore.team_1}:${subscore.team_2} nV)</span>{{/if}}
           {{if isNE}}<span class='list subresult'>(${subscore.team_1}:${subscore.team_2} nE)</span>{{/if}}
         </div>
         <div class='list team2'>
-          <div class='list teamname'>{{if team_2_data}}${team_2_data.short_name}{{else}}--{{/if}}</div>
+          <div class='list teamname'>${team_2_data.short_name}</div>
           <div class='list icon ${team_2_data.short_name}' />
         </div>
         <div class='list links'>

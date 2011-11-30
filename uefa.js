@@ -456,6 +456,7 @@ function MatchesModel (data) {
       match.team_1_data = self.getTeamByGroupIdentifier(match.team_1);
       match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
       match.location_data = self.getLocationByID(match.location);
+      match.isOpen = (match.status === 'open') ? true : false;
     });
     return matches;
   };
@@ -482,6 +483,7 @@ function MatchesModel (data) {
       match.team_1_data = self.getTeamByGroupIdentifier(match.team_1);
       match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
       match.location_data = self.getLocationByID(match.location);
+      match.isOpen = (match.status === 'open') ? true : false;
       match.domid = date;
     });
     return matches;
@@ -495,6 +497,7 @@ function MatchesModel (data) {
           match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
           match.location_data = self.getLocationByID(match.location);
           match.domid = date;
+          match.isOpen = (match.status === 'open') ? true : false;
           matches.push(match);
         }
       });
@@ -512,6 +515,7 @@ function MatchesModel (data) {
           match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
           match.location_data = self.getLocationByID(match.location);
           match.domid = date;
+          match.isOpen = (match.status === 'open') ? true : false;
           matches.push(match);
         }
       });
