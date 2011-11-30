@@ -754,8 +754,8 @@ function Stadion (domID, data, width, height) {
 
   self.track = function () {
     console.log('TRACK');
-    var pxl1 = 'http://sportzdf.ivwbox.de/cgi-bin/ivw/CP/ZS/0/EURO_2012;0/HTMLAnimation/Sport_-_EURO_2012/Modul_spielplan_euro2012?rand='+Math.random()*10000;
-    var pxl2 = 'http://2df.ivwbox.de/cgi-bin/ivw/CP;/ZDFsport/Sport_;_EURO_2012/0/HTMLAnimation/Modul_spielplan_euro2012/A002902?rand='+Math.random()*10000;
+    var pxl1 = 'http://sportzdf.ivwbox.de/cgi-bin/ivw/CP/ZS/0/EURO_2012;0/HTMLAnimation/Sport_-_EURO_2012/Modul_spielplan_euro2012';
+    var pxl2 = 'http://2df.ivwbox.de/cgi-bin/ivw/CP;/ZDFsport/Sport_;_EURO_2012/0/HTMLAnimation/Modul_spielplan_euro2012/A002902';
 
     var container = $('#trckpxl');
     container.empty();
