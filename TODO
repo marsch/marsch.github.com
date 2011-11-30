@@ -1,14 +1,14 @@
 OK - Bitte am Anfang, wenn noch nichts abgeklickt wurde, die Spielorte-Karte zeigen
-OK -  Bei Breslau, Danzig und ab Donezk müsste die erste oder zweite Zeile im Spielorte Menü noch mit Leerzeichen etwas eingerückt werden - siehe Layout.
-- Bei Partien die noch nicht fest stehen: Balken einblenden, 0:0, keine Mannschaftnamen, aber Zeit und Ort
+OK - Bei Breslau, Danzig und ab Donezk müsste die erste oder zweite Zeile im Spielorte Menü noch mit Leerzeichen etwas eingerückt werden - siehe Layout.
+OK - BUG: Actionlinks pro Spiel gerade nicht klickbar (z-index, eventbubbling denke ich)
+OK - Bei Partien die noch nicht fest stehen: Balken einblenden, 0:0, keine Mannschaftnamen, aber Zeit und Ort
+OK - Spielstatus verarbeitung (weiß ich auch schon wie ichs mach)
+OK - Logik für autom. ermitteln der Viertelfinale, Halbfinale und Finalmannschaften (is aber nix großes :D)
+OK - Handling für offene Spielstände und Co.
+OUT - Icon für noch nicht-feststehende Mannschaften 
 - BUG: Was mir jetzt noch auffiel, ist dass auf iPad und iPhone keine Inhalte geladen werden.
 - Rundenübersicht
 - Layout feinschliff bei den Detailseiten zu den Spielen
 - Icons der Mannschaften im Stadion (is a bisserl tricky)
 - Abspann
-- Logik für autom. ermitteln der Viertelfinale, Halbfinale und Finalmannschaften (is aber nix großes :D)
-- Spielstatus verarbeitung (weiß ich auch schon wie ichs mach)
-OK - BUG: Actionlinks pro Spiel gerade nicht klickbar (z-index, eventbubbling denke ich)
-- Handling für offene Spielstände und Co.
-- Icon für noch nicht-feststehende Mannschaften 
 - Optimierung / Minimizing

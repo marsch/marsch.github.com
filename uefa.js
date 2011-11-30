@@ -383,6 +383,9 @@ function MatchesModel (data) {
   self.getWinnerTeamByMatchID = function (match_id) {
     var match = self.getMatchByID(parseInt(match_id, 10));
     var score = null;
+    if (match.status === 'current' || match.status === 'open') {
+      return false;
+    }
     if(match.isNV || match.isNE) {
       score = match.subscore;
     } else {
@@ -408,6 +411,10 @@ function MatchesModel (data) {
     var group = self.getGroupByID(group_id);
     var teams = {};
     _.each(matches, function (match, index) {
+      if (match.status === 'current' || match.status === 'open') {
+        teams = false;
+        return false;
+      }
       if (!teams[match.team_1]) {
         teams[match.team_1] = 0;
       }
@@ -433,7 +440,9 @@ function MatchesModel (data) {
         teams[match.team_2] += 3;
       }
     });
-    
+    if (teams === false) {
+      return false;
+    }
     var sortedTeams = [];
     _.each(teams, function (score, team) {
       var entry = {};
@@ -454,13 +463,18 @@ function MatchesModel (data) {
     // getMatchesByRound - look if every is closed
     // get the team with the most scores
     var sortedTeams = self.getGroupTable(group_id);
-    console.log(sortedTeams);
+    if (!sortedTeams) {
+      return false;
+    }
     return sortedTeams[sortedTeams.length-1].team;
   };
   self.getGroupSecondTeam = function (group_id) {
     // getMatchesByRound - look if every is closed
     // get the team with the second most scores
     var sortedTeams = self.getGroupTable(group_id);
+    if (!sortedTeams) {
+      return false;
+    }
     return sortedTeams[sortedTeams.length-2].team;
   };
 
