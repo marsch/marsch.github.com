@@ -381,12 +381,29 @@ function MatchesModel (data) {
   };
 
   self.getWinnerTeamByMatchID = function (match_id) {
+    var match = self.getMatchByID(parseInt(match_id, 10));
+    var score = null;
+    if(match.isNV || match.isNE) {
+      score = match.subscore;
+    } else {
+      score = match.score;
+    }
+
+    if (score.team_1 === score.team_2) {
+        return false; // should throw an exception or something
+    }
+    var winner = null;
+    if (score.team_1 > score.team_2) {
+      winner = match.team_1;
+    } else {
+      winner = match.team_2;
+    }
+    var winner = self.getTeamByGroupIdentifier(winner);
+    return winner;
   
   };
 
-  self.getGroupFirstTeam = function (group_id) {
-    // getMatchesByRound - look if every is closed
-    // get the team with the most scores
+  self.getGroupTable = function (group_id) {
     var matches = self.getMatchesByRound(group_id);
     var group = self.getGroupByID(group_id);
     var teams = {};
@@ -405,20 +422,34 @@ function MatchesModel (data) {
         teams[match.team_2] += match.score.team_2;
       }
     });
-    var first = null;
-    var first_value = 0;
-    for (var i in teams) {
-      if(teams[i] > first_value) {
-        first_value = teams[i];
-        first = self.getTeamByGroupIdentifier(i);
-      }
-    }
-    return first;
+    var sortedTeams = [];
+    _.each(teams, function (score, team) {
+      var entry = {};
+      entry.team = self.getTeamByGroupIdentifier(team);
+      entry.score = score;
+      sortedTeams.push(entry);
+    });
+
+    var teamSort = function (a, b) {
+      return a.score - b.score;
+    };
+
+    sortedTeams.sort(teamSort);
+    return sortedTeams;
+  };
+
+  self.getGroupFirstTeam = function (group_id) {
+    // getMatchesByRound - look if every is closed
+    // get the team with the most scores
+    var sortedTeams = self.getGroupTable(group_id);
+    console.log(sortedTeams);
+    return sortedTeams[sortedTeams.length-1].team;
   };
   self.getGroupSecondTeam = function (group_id) {
     // getMatchesByRound - look if every is closed
     // get the team with the second most scores
-    return self.getGroupFirstTeam(group_id);
+    var sortedTeams = self.getGroupTable(group_id);
+    return sortedTeams[sortedTeams.length-2].team;
   };
 
 
