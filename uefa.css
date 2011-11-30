@@ -66,32 +66,34 @@
 .games_6 {
   background-image: url('images/6_games_detail.png');
   background-repeat: no-repeat;
-  height: 284px;
-  width: 468px;
+  height: 224px;
+  width: 418px;
   padding-top: 38px;
   padding-left: 50px;
+  
 }
 .games_5 {
   background-image: url('images/5_games_detail.png');
   background-repeat: no-repeat;
   height: 284px;
-  width: 468px;
+  width: 418px;
   padding-top: 54px;
   padding-left: 50px;
 }
 .games_4 {
   background-image: url('images/4_games_detail.png');
   background-repeat: no-repeat;
-  height: 284px;
-  width: 468px;
+  height: 154px;
+  width: 418px;
   padding-top: 73px;
   padding-left: 50px;
+  
 }
 .games_3 {
   background-image: url('images/3_games_detail.png');
   background-repeat: no-repeat;
-  height: 284px;
-  width: 468px;
+  height: 154px;
+  width: 418px;
   padding-top: 90px;
   padding-left: 50px;
 }
@@ -108,18 +110,20 @@
 .games_2 {
   background-image: url('images/2_games_detail.png');
   background-repeat: no-repeat;
-  height: 284px;
-  width: 468px;
+  height: 124px;
+  width: 418px;
   padding-top: 109px;
   padding-left:  50px;
+  
 }
 .games_1 {
   background-image: url('images/1_games_detail.png');
   background-repeat: no-repeat;
-  height: 284px;
-  width: 468px;
+  height: 104px;
+  width: 418px;
   padding-top: 125px;
   padding-left: 50px;
+  
 }
 
 .listitem {
