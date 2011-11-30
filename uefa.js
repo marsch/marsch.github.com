@@ -173,14 +173,14 @@ function LocationView (domID, location, matches, paper) {
         if (typeof item !== 'undefined') {
           console.log(item.id);
           if (item.id === self.location.id || (highlightTeams.indexOf(item.id) > -1)) {
-            element.animate({'fill-opacity': 0.8}, 200, 'bounce');
+            element.animate({'fill-opacity': 0.9}, 200, 'bounce');
           } else if (highlightGroups.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
           } else if (highlightDates.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
           } else if (highlightLocations.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
-          } else {
+          } else if (item.name !== 'TEILNEHMER' && item.name !== 'RUNDEN' && item.name !== 'SPIELORTE' && item.name !== 'TERMINE') {
             element.animate({'fill-opacity': 0.6}, 200, 'bounce');
           }
         }
@@ -241,14 +241,14 @@ function TeamView (domID, team, matches, paper) {
         if (typeof item !== 'undefined') {
           console.log(item.id);
           if (item.id === team.id || (highlightTeams.indexOf(item.id) > -1)) {
-            element.animate({'fill-opacity': 0.8}, 200, 'bounce');
+            element.animate({'fill-opacity': 0.9}, 200, 'bounce');
           } else if (highlightGroups.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
           } else if (highlightDates.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
           } else if (highlightLocations.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
-          } else {
+          } else if (item.name !== 'TEILNEHMER' && item.name !== 'RUNDEN' && item.name !== 'SPIELORTE' && item.name !== 'TERMINE') {
             element.animate({'fill-opacity': 0.6}, 200, 'bounce');
           }
         }
@@ -308,14 +308,14 @@ function DateView (domID, date, matches, paper) {
         if (typeof item !== 'undefined') {
           console.log(item.id);
           if (item.id === self.date.id || (highlightTeams.indexOf(item.id) > -1)) {
-            element.animate({'fill-opacity': 0.8}, 200, 'bounce');
+            element.animate({'fill-opacity': 0.9}, 200, 'bounce');
           } else if (highlightGroups.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
           } else if (highlightDates.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
           } else if (highlightLocations.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
-          } else {
+          } else if (item.name !== 'TEILNEHMER' && item.name !== 'RUNDEN' && item.name !== 'SPIELORTE' && item.name !== 'TERMINE') {
             element.animate({'fill-opacity': 0.6}, 200, 'bounce');
           }
         }
@@ -374,14 +374,14 @@ function RoundView (domID, round, matches, paper) {
         if (typeof item !== 'undefined') {
           console.log(item.id);
           if (item.id === self.round.id || (highlightTeams.indexOf(item.id) > -1)) {
-            element.animate({'fill-opacity': 0.8}, 200, 'bounce');
+            element.animate({'fill-opacity': 0.9}, 200, 'bounce');
           } else if (highlightGroups.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
           } else if (highlightDates.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
           } else if (highlightLocations.indexOf(item.id) > -1) {
             element.animate({'fill-opacity': 1.0}, 200, 'bounce');
-          } else {
+          } else if (item.name !== 'TEILNEHMER' && item.name !== 'RUNDEN' && item.name !== 'SPIELORTE' && item.name !== 'TERMINE') {
             element.animate({'fill-opacity': 0.6}, 200, 'bounce');
           }
         }
@@ -859,10 +859,14 @@ function Stadion (domID, data, width, height) {
       label.rotate(segmentItem.angle);
 
       hoverFunc = function () {
-        segment.animate({'fill-opacity': 0.8}, 200, 'bounce');
+        if(segment.attr('fill-opacity') <= 0.8) {
+          segment.animate({'fill-opacity': 0.8}, 200, 'bounce');
+        }
       };
       hideFunc = function () {
-        segment.animate({'fill-opacity': segmentFormat['fill-opacity']}, 200, 'bounce');
+        if(segment.attr('fill-opacity') <= 0.8) {
+          segment.animate({'fill-opacity': segmentFormat['fill-opacity']}, 200, 'bounce');
+        }
       };
 
       $(segment.node).hover(hoverFunc, hideFunc);
@@ -888,10 +892,14 @@ function Stadion (domID, data, width, height) {
       label.rotate(segmentItem.angle);
 
       hoverFunc = function () {
-        segment.animate({'fill-opacity': 0.8}, 200, 'bounce');
+        if(segment.attr('fill-opacity') <= 0.8) {
+          segment.animate({'fill-opacity': 0.8}, 200, 'bounce');
+        }
       };
       hideFunc = function () {
-        segment.animate({'fill-opacity': segmentFormat['fill-opacity']}, 200, 'bounce');
+        if(segment.attr('fill-opacity') <= 0.8) {
+          segment.animate({'fill-opacity': segmentFormat['fill-opacity']}, 200, 'bounce');
+        }
       };
 
       $(segment.node).hover(hoverFunc, hideFunc);
