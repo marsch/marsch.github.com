@@ -748,26 +748,50 @@ function Stadion (domID, data, width, height) {
     self.onClickLocationsLabel(); //just the default screen
   };
 
+  self.track = function () {
+    console.log('TRACK');
+    var pxl1 = 'http://sportzdf.ivwbox.de/cgi-bin/ivw/CP/ZS/0/EURO_2012;0/HTMLAnimation/Sport_-_EURO_2012/Modul_spielplan_euro2012?rand='+Math.random()*10000;
+    var pxl2 = 'http://2df.ivwbox.de/cgi-bin/ivw/CP;/ZDFsport/Sport_;_EURO_2012/0/HTMLAnimation/Modul_spielplan_euro2012/A002902?rand='+Math.random()*10000;
 
+    var container = $('#trckpxl');
+    container.empty();
+    var img = new Image();
+    $(img).load(function () {
+            container.append(this); 
+          })
+          .attr('src', pxl1);
+    var img2 = new Image();
+    $(img2).load(function () {
+            container.append(this); 
+          })
+          .attr('src', pxl2);
+
+
+  };
   self.onClickTeamsLabel = function () {
+    self.track();
     var teamsMapView = new TeamsMapView('details');
     teamsMapView.draw();
   };
   self.onClickLocationsLabel = function () {
+    self.track();
     var view = new LocationsView('details');
     view.draw();
   };
 
   self.onClickDatesLabel = function () {
+    self.track();
     var view = new DatesView('details');
     view.draw();
   };
   self.onClickRoundsLabel = function () {
+    self.track();
     var view = new RoundsView('details');
     view.draw();
   };
 
   self.onClickLocation = function () {
+    self.track();
     var location, matches, view;
     location = this.data('item');
     matches = self.model.getMatchesByLocation(location.id);
@@ -775,7 +799,7 @@ function Stadion (domID, data, width, height) {
     view.draw();
   };
   self.onClickTeam = function () {
-    
+    self.track();
     var team, matches, view;
     team = this.data("item");
     matches = self.model.getMatchesByTeam(team.id);
@@ -783,6 +807,7 @@ function Stadion (domID, data, width, height) {
     view.draw();
   };
   self.onClickDate = function () {
+    self.track();
     var view, matches, date;
     date = this.data('item');
     matches = self.model.getMatchesByDate(date.id);
@@ -791,6 +816,7 @@ function Stadion (domID, data, width, height) {
     view.draw();
   };
   self.onClickRound = function () {
+    self.track();
     console.log(this.data("item"));
     var view, round, location;
     round = this.data('item');
@@ -799,6 +825,7 @@ function Stadion (domID, data, width, height) {
     view.draw();
   };
   self.onClickAbspann = function () {
+    self.track();
     var view = new AbspannView('details');
     view.draw();
   };
