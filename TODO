@@ -6,9 +6,9 @@ OK - Spielstatus verarbeitung (weiß ich auch schon wie ichs mach)
 OK - Logik für autom. ermitteln der Viertelfinale, Halbfinale und Finalmannschaften (is aber nix großes :D)
 OK - Handling für offene Spielstände und Co.
 OUT - Icon für noch nicht-feststehende Mannschaften 
+OK - Icons der Mannschaften im Stadion (is a bisserl tricky)
+OK - Abspann
 - BUG: Was mir jetzt noch auffiel, ist dass auf iPad und iPhone keine Inhalte geladen werden.
 - Rundenübersicht
 - Layout feinschliff bei den Detailseiten zu den Spielen
-- Icons der Mannschaften im Stadion (is a bisserl tricky)
-- Abspann
 - Optimierung / Minimizing

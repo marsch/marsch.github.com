@@ -124,7 +124,7 @@ function RoundsView (domID) {
   self.init();
 }
 
-function LocationView (domID, location, matches) {
+function LocationView (domID, location, matches, paper) {
   if(! (this instanceof arguments.callee)) {
     return new arguments.callee(arguments);
   }
@@ -133,6 +133,7 @@ function LocationView (domID, location, matches) {
     self.domID = domID;
     self.location = location;
     self.matches = matches;
+    self.paper = paper;
   };
 
   self.draw = function () {
@@ -147,12 +148,50 @@ function LocationView (domID, location, matches) {
     wrapper.append(content);
 
     container.fadeIn();
+
+    // contextual highlighting
+    var highlightTeams = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return [match.team_1_data.id, match.team_2_data.id];
+    })));
+
+    var highlightGroups = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return ['g' + match.team_1.substring(0,1), 'g' + match.team_2.substring(0,1)];
+    })));
+
+    var highlightDates = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return match.domid; //just a helper property : hack
+    })));
+
+    var highlightLocations = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return match.location;
+    })));
+
+    console.log(self.matches);
+    self.paper.forEach(function (element) {
+      if (element.type === 'path') {
+        var item = element.data('item');
+        if (typeof item !== 'undefined') {
+          console.log(item.id);
+          if (item.id === self.location.id || (highlightTeams.indexOf(item.id) > -1)) {
+            element.animate({'fill-opacity': 0.8}, 200, 'bounce');
+          } else if (highlightGroups.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else if (highlightDates.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else if (highlightLocations.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else {
+            element.animate({'fill-opacity': 0.6}, 200, 'bounce');
+          }
+        }
+      }
+    });
   };
 
   self.init();
 }
 
-function TeamView (domID, team, matches) {
+function TeamView (domID, team, matches, paper) {
   if (! (this instanceof arguments.callee)) {
     return new arguments.callee(arguments);
   }
@@ -161,6 +200,7 @@ function TeamView (domID, team, matches) {
     self.domID = domID;
     self.team = team;
     self.matches = matches;
+    self.paper = paper;
 
     console.log(self);
   };
@@ -176,11 +216,49 @@ function TeamView (domID, team, matches) {
     wrapper.append(content);
 
     container.fadeIn();
+
+    // contextual highlighting
+    var highlightTeams = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return [match.team_1_data.id, match.team_2_data.id];
+    })));
+
+    var highlightGroups = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return ['g' + match.team_1.substring(0,1), 'g' + match.team_2.substring(0,1)];
+    })));
+
+    var highlightDates = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return match.domid; //just a helper property : hack
+    })));
+
+    var highlightLocations = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return match.location;
+    })));
+
+    console.log(self.matches);
+    self.paper.forEach(function (element) {
+      if (element.type === 'path') {
+        var item = element.data('item');
+        if (typeof item !== 'undefined') {
+          console.log(item.id);
+          if (item.id === team.id || (highlightTeams.indexOf(item.id) > -1)) {
+            element.animate({'fill-opacity': 0.8}, 200, 'bounce');
+          } else if (highlightGroups.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else if (highlightDates.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else if (highlightLocations.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else {
+            element.animate({'fill-opacity': 0.6}, 200, 'bounce');
+          }
+        }
+      }
+    });
   };
   self.init();
 };
 
-function DateView (domID, date, matches) {
+function DateView (domID, date, matches, paper) {
   if (! (this instanceof arguments.callee)) {
     return new arguments.callee(arguments);
   }
@@ -189,6 +267,7 @@ function DateView (domID, date, matches) {
     self.domID = domID;
     self.date = date;
     self.matches = matches;
+    self.paper = paper;
     console.log(self);
   };
 
@@ -204,11 +283,49 @@ function DateView (domID, date, matches) {
     wrapper.append(content);
 
     container.fadeIn();
+
+    // contextual highlighting
+    var highlightTeams = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return [match.team_1_data.id, match.team_2_data.id];
+    })));
+
+    var highlightGroups = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return ['g' + match.team_1.substring(0,1), 'g' + match.team_2.substring(0,1)];
+    })));
+
+    var highlightDates = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return match.domid; //just a helper property : hack
+    })));
+
+    var highlightLocations = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return match.location;
+    })));
+
+    console.log(self.matches);
+    self.paper.forEach(function (element) {
+      if (element.type === 'path') {
+        var item = element.data('item');
+        if (typeof item !== 'undefined') {
+          console.log(item.id);
+          if (item.id === self.date.id || (highlightTeams.indexOf(item.id) > -1)) {
+            element.animate({'fill-opacity': 0.8}, 200, 'bounce');
+          } else if (highlightGroups.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else if (highlightDates.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else if (highlightLocations.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else {
+            element.animate({'fill-opacity': 0.6}, 200, 'bounce');
+          }
+        }
+      }
+    });
   };
   self.init();
 };
 
-function RoundView (domID, round, matches) {
+function RoundView (domID, round, matches, paper) {
   if (! (this instanceof arguments.callee)) {
     return new arguments.callee(arguments);
   }
@@ -217,6 +334,7 @@ function RoundView (domID, round, matches) {
     self.domID = domID;
     self.round = round;
     self.matches = matches;
+    self.paper = paper;
   };
   self.draw = function () {
     var container = $('#' + self.domID);
@@ -232,16 +350,44 @@ function RoundView (domID, round, matches) {
     wrapper.append(content);
     container.fadeIn();
 
-/*
-    $('#' + self.domID).empty();
-    var img = new Image();
-    $(img).load(function () {
-            $(this).hide(); 
-            $('#' + self.domID).append(this); 
-            $(this).attr('z-index', -1);
-            $(this).fadeIn();
-          })
-          .attr('src', 'images/4_games_detail.jpg');*/
+    // contextual highlighting
+    var highlightTeams = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return [match.team_1_data.id, match.team_2_data.id];
+    })));
+
+    var highlightGroups = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return ['g' + match.team_1.substring(0,1), 'g' + match.team_2.substring(0,1)];
+    })));
+
+    var highlightDates = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return match.domid; //just a helper property : hack
+    })));
+
+    var highlightLocations = _.unique(_.flatten(_.map(self.matches, function (match, index) {
+      return match.location;
+    })));
+
+    console.log(self.matches);
+    self.paper.forEach(function (element) {
+      if (element.type === 'path') {
+        var item = element.data('item');
+        if (typeof item !== 'undefined') {
+          console.log(item.id);
+          if (item.id === self.round.id || (highlightTeams.indexOf(item.id) > -1)) {
+            element.animate({'fill-opacity': 0.8}, 200, 'bounce');
+          } else if (highlightGroups.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else if (highlightDates.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else if (highlightLocations.indexOf(item.id) > -1) {
+            element.animate({'fill-opacity': 1.0}, 200, 'bounce');
+          } else {
+            element.animate({'fill-opacity': 0.6}, 200, 'bounce');
+          }
+        }
+      }
+    });
+
   };
   self.init();
 }
@@ -300,6 +446,7 @@ function MatchesModel (data) {
       _.each(self.data.matches, function (matchday, date) {
         _.each(matchday, function (match) {
           if(match.team_1.substring(0,1) === groupIdentifier) {
+            match.domid = date;
             matches.push(match);
           }
         });
@@ -315,9 +462,11 @@ function MatchesModel (data) {
   self.getMatchByID = function (matchID) {
     for (var i in self.data.matches) {
       var matchday = self.data.matches[i];
+      var date = i;
       for (var j in matchday) {
         var match = matchday[j];
         if (match.id === matchID) {
+          match.domid = date;
           return match;
         }
       }
@@ -333,6 +482,7 @@ function MatchesModel (data) {
       match.team_1_data = self.getTeamByGroupIdentifier(match.team_1);
       match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
       match.location_data = self.getLocationByID(match.location);
+      match.domid = date;
     });
     return matches;
   };
@@ -344,6 +494,7 @@ function MatchesModel (data) {
           match.team_1_data = self.getTeamByGroupIdentifier(match.team_1);
           match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
           match.location_data = self.getLocationByID(match.location);
+          match.domid = date;
           matches.push(match);
         }
       });
@@ -360,6 +511,7 @@ function MatchesModel (data) {
           match.team_1_data = self.getTeamByGroupIdentifier(match.team_1);
           match.team_2_data = self.getTeamByGroupIdentifier(match.team_2);
           match.location_data = self.getLocationByID(match.location);
+          match.domid = date;
           matches.push(match);
         }
       });
@@ -619,14 +771,15 @@ function Stadion (domID, data, width, height) {
     var location, matches, view;
     location = this.data('item');
     matches = self.model.getMatchesByLocation(location.id);
-    view = new LocationView('details', location, matches);
+    view = new LocationView('details', location, matches, self.paper);
     view.draw();
   };
   self.onClickTeam = function () {
+    
     var team, matches, view;
     team = this.data("item");
     matches = self.model.getMatchesByTeam(team.id);
-    view = new TeamView('details', team, matches);
+    view = new TeamView('details', team, matches, self.paper);
     view.draw();
   };
   self.onClickDate = function () {
@@ -634,7 +787,7 @@ function Stadion (domID, data, width, height) {
     date = this.data('item');
     matches = self.model.getMatchesByDate(date.id);
     
-    var view = new DateView('details', date, matches);
+    var view = new DateView('details', date, matches, self.paper);
     view.draw();
   };
   self.onClickRound = function () {
@@ -642,7 +795,7 @@ function Stadion (domID, data, width, height) {
     var view, round, location;
     round = this.data('item');
     matches = self.model.getMatchesByRound(round.id);
-    view = new RoundView('details', round, matches);
+    view = new RoundView('details', round, matches, self.paper);
     view.draw();
   };
   self.onClickAbspann = function () {
