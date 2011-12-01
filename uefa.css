@@ -1,5 +1,6 @@
 body{
 	background: url('images/bg_page.png') #999 repeat-x 0 0;
+	margin:0; padding:0;	
 }
 @font-face {
     font-family: 'Swiss721Regular';
