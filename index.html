@@ -11,7 +11,7 @@
     <script src='libs/underscore.js'></script>
     <script src='libs/raphael.js'></script>
     <script src='paths.js'></script>
-    <script src='data_begin.js'></script>
+    <script src='data.js'></script>
     <script src='uefa.js'></script>
   </head>
   <script id="match_listitem" type="text/x-jQuery-tmpl">
@@ -26,7 +26,7 @@
         </div>
         <div class='list result'>
           {{if isOpen }}
-          --:--
+          -:-
           {{else}}
           ${score.team_1}:${score.team_2}
           {{/if}}
@@ -46,14 +46,16 @@
   </script>
   <body>
     <div id='container'>
-      <div id='logo'><img src='images/logo.png'/></div>
+      
       <div id='details'></div>
       <div id='stage'></div>
       <div id='flags'></div>
+      
       <div id='social'>
         <a href='http://twitter.com/home?status=http://www.labor1.de/zdf/SpielplanEuro2012' rel="external"><img src='images/twitter_button.png' /></a>
         <a href='http://www.facebook.com/sharer.php?u=http://www.labor1.de/zdf/SpielplanEuro2012' rel="external"><img src='images/fb_button.png' /></a>
       </div>
+      <div id='logo'><a href='#' onclick="uefastadion.onClickTeamsLabel();"><img src='images/logo.png'/></a></div>
       <div id='abspann'>
         <a href='#' onclick='uefastadion.onClickAbspann()'>Abspann</a>
       </div>

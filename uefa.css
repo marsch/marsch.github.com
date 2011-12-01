@@ -35,16 +35,19 @@
   width: 946px;
   height: 532px;
 }
-#logo {
-  padding-top: 7px;
-  padding-left: 20px;
-}
+
 #stage {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
 
+}
+#logo {
+  height: 136px;
+  width: 113px;
+  padding-top: 7px;
+  padding-left: 20px;
 }
 #social {
   position: absolute;
@@ -108,7 +111,7 @@
   padding-left: 50px;
 }
 .games_title {
-  font-size: 18px;
+  font-size: 15px;
   font-family: 'Swiss721Black', Arial, Helvetica;
   color: #333333;
   position: absolute;

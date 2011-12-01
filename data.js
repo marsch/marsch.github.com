@@ -24,23 +24,23 @@ data = {
     { id: "gd", short_name: "D", name: "Gruppe D", members: [ "t16", "t13", "t14", "t15"] }
   ],
   locations: [
-    { id: "s2", short_name: "Municipal Stadion", name: " Municipal Stadion\nBreslau", country: "POL"},
-    { id: "s5", short_name: "Arena Gdansk", name: " Arena Gdansk\nDanzig", country: "POL"},
-    { id: "s6", short_name: "Stadion Miejski", name: "Stadion Miejski\nPosen", country: "POL" },
-    { id: "s1", short_name: "National Stadion", name: "National Stadion\nWarschau", country: "POL"},
+    { id: "s2", short_name: "Municipal Stadion\nBreslau", name: " Municipal Stadion,\nBreslau", country: "POL"},
+    { id: "s5", short_name: "Arena Gdansk\nDanzig", name: " Arena Gdansk,\nDanzig", country: "POL"},
+    { id: "s6", short_name: "Stadion Miejski\nPosen", name: "Stadion Miejski,\nPosen", country: "POL" },
+    { id: "s1", short_name: "National Stadion\nWarschau", name: "National Stadion,\nWarschau", country: "POL"},
     
-    { id: "s3", short_name: "Metalist Stadion", name: "Metalist Stadion\nCharkiw", country: "UKR" },
-    { id: "s8", short_name: "Donbass Arena", name: "Donbass Arena\n Donezk", country: "UKR" },
-    { id: "s7", short_name: "Olympia Stadion", name: "Olympia Stadion\n Kiew", country: "UKR" },
-    { id: "s4", short_name: "Arena Lwiw", name: "Arena Lwiw\n Lwiw", country: "UKR" }
+    { id: "s3", short_name: "Metalist Stadion\nCharkiw", name: "Metalist Stadion,\nCharkiw", country: "UKR" },
+    { id: "s8", short_name: "Donbass Arena\nDonezk", name: "Donbass Arena,\n Donezk", country: "UKR" },
+    { id: "s7", short_name: "Olympia Stadion\nKiew", name: "Olympia Stadion,\n Kiew", country: "UKR" },
+    { id: "s4", short_name: "Arena Lwiw\nLwiw", name: "Arena Lwiw,\n Lwiw", country: "UKR" }
   ],
   matches: {
     '08. Juni': [
-      { id: 1, location: "s1", team_1: "a1", team_2: "a2", date: "08.06.", time: "18:00", score: { team_1: 3, team_2: 3 }, subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'closed', link_2: {label: 'Bericht >', url: 'http://www.yahoo.de'}},
-      { id: 2, location: "s2", team_1: "a3", team_2: "a4", date: "08.06.", time: "20:45", score: { team_1: 1, team_2: 1 },  subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'current', link_1: {label: 'Liveticker >', url: 'http://www.google.de'}}
+      { id: 1, location: "s1", team_1: "a1", team_2: "a2", date: "08.06.", time: "18:00", score: { team_1: 0, team_2: 0 }, subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'open', link_2: {label: 'Bericht >', url: 'http://www.yahoo.de'}},
+      { id: 2, location: "s2", team_1: "a3", team_2: "a4", date: "08.06.", time: "20:45", score: { team_1: 0, team_2: 0 },  subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'open', link_1: {label: 'Liveticker >', url: 'http://www.google.de'}}
     ],
     '09. Juni': [
-      { id: 3, location: "s3", team_1: "b1", team_2: "b2", date: "09.06.", time: "18:00", score: { team_1: 1, team_2: 2 },  subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'closed'},
+      { id: 3, location: "s3", team_1: "b1", team_2: "b2", date: "09.06.", time: "18:00", score: { team_1: 0, team_2: 0 },  subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'open'},
       { id: 4, location: "s4", team_1: "b3", team_2: "b3", date: "09.06.", time: "20:45", score: { team_1: 0, team_2: 0 },  subscore: {team_1: 0, team_2: 0}, isNV: false, isNE: false, status: 'open', link_1: {label: 'Liveticker >', url: 'http://www.google.de'}, link_2: {label: 'Bericht >', url: 'http://www.yahoo.de'}  }
     ],
     '10. Juni': [

@@ -8,10 +8,19 @@ OK - Handling für offene Spielstände und Co.
 OUT - Icon für noch nicht-feststehende Mannschaften 
 OK - Icons der Mannschaften im Stadion (is a bisserl tricky)
 OK - Abspann
-- BUG: Was mir jetzt noch auffiel, ist dass auf iPad und iPhone keine Inhalte geladen werden.
-- Rundenübersicht
-- Layout feinschliff bei den Detailseiten zu den Spielen
-- Optimierung / Minimizing
+OK - Layout feinschliff bei den Detailseiten zu den Spielen
 OK - Tracking Pixel sollen wohl ohne Parameter rein, URLs:
 OK -- http://sportzdf.ivwbox.de/cgi-bin/ivw/CP/ZS/0/EURO_2012;0/HTMLAnimation/Sport_-_EURO_2012/Modul_spielplan_euro2012
 OK -- http://2df.ivwbox.de/cgi-bin/ivw/CP;/ZDFsport/Sport_;_EURO_2012/0/HTMLAnimation/Modul_spielplan_euro2012/A002902
+OK - Beim Start des Plans bitte das Innere des Ovals leer lassen
+OK - Können wir bei den nicht gespielten Begnungen nur ein -:- (Strich/Doppelpunkt/Strich) machen, der Doppelstrich verschiebt, die Fahne rechts.
+OK - Können wir beim Stadionnamen, in der langen Version, die Stadt durch ein Komma vom Namen trennen, z..B. Arena Lwiw, Lwiw?
+OK - Bei den Begenungen in der Mitte sollten auch Stadionname und Stadt stehen, nicht nur der Name - so wie es im Layout war. Können wir da ggf. doch drei Zeilen reinquetschen?
+OK - Einige der Headlines in der Mitte, ragen in die Flächen des Ovals. Kannst Du da noch was dran drehen? Z.B. die Schrift verkleinern?National Stadion Warschau z.B.
+
+- BUG: Was mir jetzt noch auffiel, ist dass auf iPad und iPhone keine Inhalte geladen werden.
+- Rundenübersicht
+- Optimierung / Minimizing
+- könnt Ihr bitte bei Klick auf das Euro-Logo diese Default-Ansicht laden?
+- Beschriftung bei den Stadien auf dem Oval ist bei manchen noch ein bisschen schief, wobei das auch je nach Browser unterschiedlich heftig ist.
+- ich hatte in Photoshop die zwei Zeilen getrennt ("Arena Lwiw" und "Lwiw") und dann separat gedreht. Im grunde fällt es nur bei Lwiw so richtig auf... Arena Gdansk könnte noch ein Drückerle weiter nach links gekippt sein... Die anderen sind n.m.M. okay

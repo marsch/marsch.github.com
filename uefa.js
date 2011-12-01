@@ -739,7 +739,6 @@ function Stadion (domID, data, width, height) {
     self.drawLocations(self.model.getLocations());
     self.drawBottom();
 
-    self.onClickLocationsLabel(); //just the default screen
   };
 
   self.track = function () {
