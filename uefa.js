@@ -166,12 +166,10 @@ function LocationView (domID, location, matches, paper) {
       return match.location;
     })));
 
-    console.log(self.matches);
     self.paper.forEach(function (element) {
       if (element.type === 'path') {
         var item = element.data('item');
         if (typeof item !== 'undefined') {
-          console.log(item.id);
           if (item.id === self.location.id || (highlightTeams.indexOf(item.id) > -1)) {
             element.animate({'fill-opacity': 0.9}, 200, 'bounce');
           } else if (highlightGroups.indexOf(item.id) > -1) {
@@ -202,7 +200,6 @@ function TeamView (domID, team, matches, paper) {
     self.matches = matches;
     self.paper = paper;
 
-    console.log(self);
   };
   self.draw = function () {
     var container = $('#' + self.domID);
@@ -234,12 +231,10 @@ function TeamView (domID, team, matches, paper) {
       return match.location;
     })));
 
-    console.log(self.matches);
     self.paper.forEach(function (element) {
       if (element.type === 'path') {
         var item = element.data('item');
         if (typeof item !== 'undefined') {
-          console.log(item.id);
           if (item.id === team.id || (highlightTeams.indexOf(item.id) > -1)) {
             element.animate({'fill-opacity': 0.9}, 200, 'bounce');
           } else if (highlightGroups.indexOf(item.id) > -1) {
@@ -268,7 +263,6 @@ function DateView (domID, date, matches, paper) {
     self.date = date;
     self.matches = matches;
     self.paper = paper;
-    console.log(self);
   };
 
   self.draw = function () {
@@ -301,12 +295,10 @@ function DateView (domID, date, matches, paper) {
       return match.location;
     })));
 
-    console.log(self.matches);
     self.paper.forEach(function (element) {
       if (element.type === 'path') {
         var item = element.data('item');
         if (typeof item !== 'undefined') {
-          console.log(item.id);
           if (item.id === self.date.id || (highlightTeams.indexOf(item.id) > -1)) {
             element.animate({'fill-opacity': 0.9}, 200, 'bounce');
           } else if (highlightGroups.indexOf(item.id) > -1) {
@@ -367,12 +359,10 @@ function RoundView (domID, round, matches, paper) {
       return match.location;
     })));
 
-    console.log(self.matches);
     self.paper.forEach(function (element) {
       if (element.type === 'path') {
         var item = element.data('item');
         if (typeof item !== 'undefined') {
-          console.log(item.id);
           if (item.id === self.round.id || (highlightTeams.indexOf(item.id) > -1)) {
             element.animate({'fill-opacity': 0.9}, 200, 'bounce');
           } else if (highlightGroups.indexOf(item.id) > -1) {
@@ -753,7 +743,6 @@ function Stadion (domID, data, width, height) {
   };
 
   self.track = function () {
-    console.log('TRACK');
     var pxl1 = 'http://sportzdf.ivwbox.de/cgi-bin/ivw/CP/ZS/0/EURO_2012;0/HTMLAnimation/Sport_-_EURO_2012/Modul_spielplan_euro2012';
     var pxl2 = 'http://2df.ivwbox.de/cgi-bin/ivw/CP;/ZDFsport/Sport_;_EURO_2012/0/HTMLAnimation/Modul_spielplan_euro2012/A002902';
 
@@ -821,7 +810,6 @@ function Stadion (domID, data, width, height) {
   };
   self.onClickRound = function () {
     self.track();
-    console.log(this.data("item"));
     var view, round, location;
     round = this.data('item');
     matches = self.model.getMatchesByRound(round.id);
