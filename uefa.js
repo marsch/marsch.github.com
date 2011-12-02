@@ -891,8 +891,8 @@ function Stadion (domID, data, width, height) {
       $(label.node).hover(hoverFunc, hideFunc);
 
       //assign clickhandler
-      segment.click(onclick);
-      label.click(onclick);
+      segment.mousedown(onclick);
+      label.mousedown(onclick);
 
       segment.data('item', item);
       label.data('item', item);
@@ -924,8 +924,8 @@ function Stadion (domID, data, width, height) {
       $(label.node).hover(hoverFunc, hideFunc);
 
       //assign clickhandler
-      segment.click(onclick);
-      label.click(onclick);
+      segment.mousedown(onclick);
+      label.mousedown(onclick);
       
       segment.data('item', item);
       label.data('item', item);
