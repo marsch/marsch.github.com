@@ -1,3 +1,7 @@
+body{
+	background: url('images/bg_page.png') #999 repeat-x 0 0;
+	margin:0; padding:0;	
+}
 @font-face {
     font-family: 'Swiss721Regular';
     src: url('webfonts/swissbtbla-webfont.eot');
@@ -31,6 +35,10 @@
 }
 
 #container {
+  position: absolute;
+  top: 144px;
+  left: 50%;
+  margin-left: -473px;
   background-image: url('images/bg.png');
   width: 946px;
   height: 532px;
@@ -43,6 +51,16 @@
   z-index: 1;
 
 }
+
+#logo-zdf{
+  position: absolute;
+  top: 90px;
+  left: 50%;
+  margin-left:-72px;
+  width: 145px;
+  height: 38px;
+}
+
 #logo {
   height: 136px;
   width: 113px;
